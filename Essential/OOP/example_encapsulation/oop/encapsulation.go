@@ -1,4 +1,4 @@
-package example
+package oop
 
 import "fmt"
 

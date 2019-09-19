@@ -16,6 +16,8 @@ special notation in Go:
 
 Example 1:
 
+file encapsulation.go
+
 ```go
 package example
 
@@ -35,9 +37,76 @@ func (e *Encapsulation) hide() {
 }
 ```
 
+file example_encapsulation.go
+
+```go
+package main
+
+// import with alias oop
+import oop "./oop"
+
+func main() {
+	// create instance Encapsulation
+	e := oop.Encapsulation{}
+
+	// run public function Expose
+	e.Expose()
+
+	// function hide not exposed, this function as private
+	// e.hide() // if this uncomment will throw error : .\example_encapsulation.go:14:3: e.hide undefined (cannot refer to unexported field or method example.(*Encapsulation).hide)
+
+}
+```
+
 ### Polymorphism
 
 Polymorphism describes a pattern in object oriented programming in which classes have different functionality while sharing a common interface
+
+Example 1:
+
+file polymorphism.go
+
+```go
+package oop
+
+import "fmt"
+
+type SuperHero interface {
+	Attack()
+}
+
+func DoAttack(sh SuperHero) {
+	sh.Attack()
+}
+
+type Superman struct{}
+
+func (su Superman) Attack() {
+	fmt.Println("Attach with laser")
+}
+
+type Thor struct{}
+
+func (th Thor) Attack() {
+	fmt.Println("Attach with Hammer")
+}
+```
+
+file example_polymorphism.go
+
+```go
+package main
+
+import sh "./superhero"
+
+func main() {
+	thor := new(sh.Thor)
+	superman := new(sh.Superman)
+
+	sh.DoAttack(thor)
+	sh.DoAttack(superman)
+}
+```
 
 #### Summary OOP in Go
 

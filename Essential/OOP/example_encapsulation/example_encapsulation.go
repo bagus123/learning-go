@@ -1,11 +1,11 @@
 package main
 
-// import with alias c
-import c "./example"
+// import with alias oop
+import oop "./oop"
 
 func main() {
 	// create instance Encapsulation
-	e := c.Encapsulation{}
+	e := oop.Encapsulation{}
 
 	// run public function Expose
 	e.Expose()
