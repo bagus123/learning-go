@@ -1,7 +1,7 @@
 # learning-go
 
 > This is documentations of learning Go
-> contains essential of Go, important library, and useful example from other
+> contains essential of Go, important library, and useful example from other,
 > for basic you can learn from the official web golang
 
 #### Essential
