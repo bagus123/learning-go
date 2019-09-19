@@ -81,7 +81,7 @@ func main() {
 	copyOfCar.brand = "Toyota"
 
 	fmt.Println("value myCar.brand is ", myCar.brand) // value myCar.brand is  Honda
-	fmt.Println("value p.brand is ", copyOfCar.brand) // value p.brand is  Toyota
+	fmt.Println("value copyOfCar.brand is ", copyOfCar.brand) // value p.brand is  Toyota
 }
 
 }
