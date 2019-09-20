@@ -18,7 +18,11 @@
 - REST Framework
   - [Gin] https://github.com/gin-gonic/gin
 
-#### Other example
+#### Other Example/Tutorial
 
+- A Tour of Go
+  https://tour.golang.org/welcome/1
+- Learn By Example
+  https://gobyexample.com/
 - REST API, Postgre, JWT, and Gorm
   https://github.com/adigunhammedolalekan/go-contacts
