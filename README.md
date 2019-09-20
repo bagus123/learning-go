@@ -8,6 +8,7 @@
 
 - [Array](https://github.com/bagus123/learning-go/tree/master/Essential/Array "Array")
 - [MAP](https://github.com/bagus123/learning-go/tree/master/Essential/Map "MAP")
+- [Error](https://github.com/bagus123/learning-go/tree/master/Essential/Error "Error")
 - [Struct](https://github.com/bagus123/learning-go/tree/master/Essential/Struct "Struct")
 - [Pointers](https://github.com/bagus123/learning-go/tree/master/Essential/Pointers "Pointers")
 - [OOP](https://github.com/bagus123/learning-go/tree/master/Essential/OOP "OOP")
