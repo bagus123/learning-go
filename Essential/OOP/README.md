@@ -3,7 +3,7 @@
 ### "Is Go object oriented?"
 
 Yes, Go support for Object Oriented Programming
-in OOP programing like Java or C++, they have class for create instance of Object, but in Go have 'struct'
+in OOP programing like Java or C++, they have class for create instance of Object, but in Go has 'struct'
 
 ### Encapsulation
 
@@ -14,7 +14,7 @@ special notation in Go:
 - function with first Letter Uppercase is public
 - function with first letter lowercase is private
 
-Example 1:
+#### Example 1:
 
 file encapsulation.go
 
@@ -62,7 +62,7 @@ func main() {
 
 Polymorphism describes a pattern in object oriented programming in which classes have different functionality while sharing a common interface
 
-Example 1:
+#### Example 1:
 
 file polymorphism.go
 
@@ -114,7 +114,7 @@ In Go, inheritance is not possible. Instead, we build our structs with composabl
 
 Go allows us to embed types within interfaces or structs. Through embedding, we are able to forward the methods included from the inner type, to the outer type.
 
-Example 1:
+#### Example 1:
 
 file composition.go
 
@@ -190,7 +190,7 @@ Abstraction means working with something we know how to use without knowing how 
 
 Similar to embedding structs within a struct, we can also embed interfaces within structs. Remember that any type that satisfied an interface also adopts that interface type.
 
-Example 1:
+#### Example 1:
 
 file abstraction.go
 
