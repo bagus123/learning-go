@@ -25,6 +25,6 @@ type MotorCycle struct {
 }
 
 // Show ...
-func (v Vehicle) Show() {
+func (v *Vehicle) Show() {
 	fmt.Println("this Brand of vehicle is ", v.Brand)
 }

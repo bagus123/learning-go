@@ -16,7 +16,7 @@ func DoAttack(sh SuperHero) {
 type Superman struct{}
 
 // Attack : implement interface SuperHero
-func (su Superman) Attack() {
+func (su *Superman) Attack() {
 	fmt.Println("Attach with laser")
 }
 
@@ -24,6 +24,6 @@ func (su Superman) Attack() {
 type Thor struct{}
 
 // Attack : implement interface SuperHero
-func (th Thor) Attack() {
+func (th *Thor) Attack() {
 	fmt.Println("Attach with Hammer")
 }

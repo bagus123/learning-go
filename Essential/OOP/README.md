@@ -81,13 +81,13 @@ func DoAttack(sh SuperHero) {
 
 type Superman struct{}
 
-func (su Superman) Attack() {
+func (su *Superman) Attack() {
 	fmt.Println("Attach with laser")
 }
 
 type Thor struct{}
 
-func (th Thor) Attack() {
+func (th *Thor) Attack() {
 	fmt.Println("Attach with Hammer")
 }
 ```
@@ -146,7 +146,7 @@ type MotorCycle struct {
 }
 
 // Show ...
-func (v Vehicle) Show() {
+func (v *Vehicle) Show() {
 	fmt.Println("this Brand of vehicle is ", v.Brand)
 }
 
@@ -182,6 +182,76 @@ func main() {
 	car.Show()
 	motorCycle.Show()
 }
+```
+
+### Abstraction
+
+Abstraction means working with something we know how to use without knowing how it works internally.
+
+Similar to embedding structs within a struct, we can also embed interfaces within structs. Remember that any type that satisfied an interface also adopts that interface type.
+
+Example 1:
+
+file abstraction.go
+
+```go
+package oop
+
+import "fmt"
+
+// SuperHero is interface
+type SuperHero interface {
+	Attack()
+}
+
+// AbstractSuperHero is abstract of SuperHero
+type AbstractSuperHero struct {
+	SuperHero
+}
+
+// MakeAttack is abstract function
+func (a AbstractSuperHero) MakeAttack() {
+	a.Attack()
+}
+
+// Superman is new struct
+type Superman struct{}
+
+// Attack is implement from interface SuperHero
+func (s *Superman) Attack() {
+	fmt.Println("Attack with laser")
+}
+
+// Thor is new struct
+type Thor struct{}
+
+// Attack is implement from interface SuperHero
+func (t *Thor) Attack() {
+	fmt.Println("Attack with Hammer")
+}
+```
+
+file example_abstraction.go
+
+```go
+package main
+
+import oop "./oop"
+
+func main() {
+
+	superman := new(oop.Superman)
+	thor := new(oop.Thor)
+
+	s := oop.AbstractSuperHero{SuperHero: superman}
+	t := oop.AbstractSuperHero{SuperHero: thor}
+
+	// call abstract function MakeAttack
+	s.MakeAttack()
+	t.MakeAttack()
+
+}
+
 ```
 
 #### Summary OOP in Go
