@@ -103,8 +103,84 @@ func main() {
 	thor := new(sh.Thor)
 	superman := new(sh.Superman)
 
-	sh.DoAttack(thor)
-	sh.DoAttack(superman)
+	sh.DoAttack(thor)     // Attach with Hammer
+	sh.DoAttack(superman) // Attach with laser
+}
+```
+
+### Composition
+
+In Go, inheritance is not possible. Instead, we build our structs with composable and reusable elements through embedding.
+
+Go allows us to embed types within interfaces or structs. Through embedding, we are able to forward the methods included from the inner type, to the outer type.
+
+Example 1:
+
+file composition.go
+
+```go
+package oop
+
+import (
+	"fmt"
+)
+
+// Vehicle is primary struct
+// don't forget use Uppercase first letter for access public
+type Vehicle struct {
+	Name  string
+	Brand string
+}
+
+// Car composed Vehicle with NumberOfDoor, NumberOfPassager
+type Car struct {
+	Vehicle
+	NumberOfDoor     int
+	NumberOfPassager int
+}
+
+// MotorCycle composed Vehicle with MotorCycleType
+type MotorCycle struct {
+	Vehicle
+	MotorCycleType string
+}
+
+// Show ...
+func (v Vehicle) Show() {
+	fmt.Println("this Brand of vehicle is ", v.Brand)
+}
+
+```
+
+file example_composition.go
+
+```go
+package main
+
+import (
+	v "./oop"
+)
+
+func main() {
+	car := v.Car{
+		Vehicle: v.Vehicle{
+			Name:  "Toyota Vios",
+			Brand: "Toyota",
+		},
+		NumberOfDoor:     4,
+		NumberOfPassager: 7,
+	}
+
+	motorCycle := v.MotorCycle{
+		Vehicle: v.Vehicle{
+			Name:  "Honda CBR 250",
+			Brand: "Honda",
+		},
+		MotorCycleType: "Sport",
+	}
+
+	car.Show()
+	motorCycle.Show()
 }
 ```
 
