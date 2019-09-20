@@ -6,8 +6,9 @@
 
 #### Essential
 
-- Struct
-- Pointers
+- [Struct](https://github.com/bagus123/learning-go/tree/master/Essential/Struct "Struct")
+- [Pointers](https://github.com/bagus123/learning-go/tree/master/Essential/Pointers "Pointers")
+- [OOP](https://github.com/bagus123/learning-go/tree/master/Essential/OOP "OOP")
 
 #### Library
 
