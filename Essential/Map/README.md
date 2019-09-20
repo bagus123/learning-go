@@ -12,10 +12,11 @@ package main
 import "fmt"
 
 func main() {
-mapFruit := make(map[string]int)
-mapFruit["banana"] = 1
-mapFruit["orange"] = 2
-mapFruit["apple"] = 3
+
+    mapFruit := make(map[string]int)
+    mapFruit["banana"] = 1
+    mapFruit["orange"] = 2
+    mapFruit["apple"] = 3
 
     // loop by for range type 1
     for key := range mapFruit {
