@@ -20,9 +20,16 @@
 
 #### Other Example/Tutorial
 
+- Documentation Go
+  https://golang.org/doc/
 - A Tour of Go
-  https://tour.golang.org/welcome/1
+  - [English] https://tour.golang.org/welcome/1
+  - [Indonesia] https://tour.golang-id.org/welcome/1
 - Learn By Example
   https://gobyexample.com/
+- Golang tutorial series
+  https://golangbot.com/learn-golang-series/
 - REST API, Postgre, JWT, and Gorm
   https://github.com/adigunhammedolalekan/go-contacts
+- Build RESTful API service in golang using gin-gonic framework
+  https://medium.com/@thedevsaddam/build-restful-api-service-in-golang-using-gin-gonic-framework-85b1a6e176f3
