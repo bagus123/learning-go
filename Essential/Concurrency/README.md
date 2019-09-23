@@ -213,3 +213,156 @@ func main() {
 	fmt.Println(<-channel)
 }
 ```
+
+#### Example 4:
+
+file example_channel_synchronization.go
+
+```go
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func worker(done chan bool, str string) {
+	fmt.Print("working...")
+	for i := 0; i < 10; i++ {
+		time.Sleep(100 * time.Millisecond)
+		fmt.Println(str)
+	}
+	fmt.Println("done")
+	done <- true
+}
+
+func main() {
+
+	done := make(chan bool, 1)
+	go worker(done, "goroutine")
+
+	// If you removed the <- done line from this program,
+	// the program would exit before the worker even started.
+	<-done
+}
+```
+
+### Select
+
+Go’s select lets you wait on multiple channel operations. Combining goroutines and channels with select is a powerful feature of Go.
+
+select is just like switch without any input argument but it only used for channel operations. The select statement is used to perform an operation on only one channel out of many, conditionally selected by case block.
+
+#### Example 1:
+
+file example_select.go
+
+```go
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func DoSomething1(channel chan string) {
+
+	// wait for 3 second
+	time.Sleep(3 * time.Second)
+
+	// send data to channel
+	channel <- "do something 1"
+}
+
+var start time.Time
+
+func init() {
+	start = time.Now()
+}
+
+func DoSomething2(channel chan string) {
+
+	// wait for 5 second
+	time.Sleep(5 * time.Second)
+
+	// send data to channel
+	channel <- "do something 2"
+}
+
+func main() {
+
+	// define new channel1
+	channel1 := make(chan string)
+	// define new channel2
+	channel2 := make(chan string)
+
+	go DoSomething1(channel1)
+	go DoSomething2(channel2)
+
+	// blocking select, will wait until channel ready to receive data
+	select {
+	case result1 := <-channel1:
+		fmt.Println(result1)
+		fmt.Println("response time ", time.Since(start))
+	case result2 := <-channel2:
+		fmt.Println(result2)
+		fmt.Println("response time ", time.Since(start))
+	}
+}
+```
+
+#### default case
+
+Like switch statement, select statement also has default case. A default case is non-blocking. But that’s not all, default case makes select statement always non-blocking. That means, send and receive operation on any channel (buffered or unbuffered) is always non-blocking.
+
+#### Example 2:
+
+file example_select_non_blocking.go
+
+```go
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func DoSomething1(channel chan string) {
+	channel <- "do something 1"
+}
+
+var start time.Time
+
+func init() {
+	start = time.Now()
+}
+
+func DoSomething2(channel chan string) {
+	channel <- "do something 2"
+}
+
+func main() {
+
+	channel1 := make(chan string)
+	channel2 := make(chan string)
+
+	go DoSomething1(channel1)
+	go DoSomething2(channel2)
+
+	// waiting for 3 second
+	// if this code line comment, will execute default case
+	time.Sleep(3 * time.Second)
+
+	select {
+	case result1 := <-channel1:
+		fmt.Println(result1)
+		fmt.Println("response time ", time.Since(start))
+	case result2 := <-channel2:
+		fmt.Println(result2)
+		fmt.Println("response time ", time.Since(start))
+	default:
+		fmt.Println("No goroutine available to send data")
+
+	}
+}
+```
