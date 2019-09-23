@@ -11,6 +11,7 @@
 - [Error](https://github.com/bagus123/learning-go/tree/master/Essential/Error "Error")
 - [Struct](https://github.com/bagus123/learning-go/tree/master/Essential/Struct "Struct")
 - [Pointers](https://github.com/bagus123/learning-go/tree/master/Essential/Pointers "Pointers")
+- [Concurrency](https://github.com/bagus123/learning-go/tree/master/Essential/Concurrency "Concurrency")
 - [OOP](https://github.com/bagus123/learning-go/tree/master/Essential/OOP "OOP")
 
 #### Library

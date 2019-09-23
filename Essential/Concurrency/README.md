@@ -124,10 +124,10 @@ import (
 
 func main() {
 
-	// define new channel string with length 2
-	channel := make(chan string, 2)
+    // define new channel string with length 2
+    channel := make(chan string, 2)
 
-	// send 2x
+    // send 2x
     channel <- "satu"
 
     // if comment this code will throw error in line [A]
