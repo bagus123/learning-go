@@ -131,13 +131,13 @@ func main() {
     channel <- "satu"
 
     // if comment this code will throw error in line [A]
-	channel <- "dua"
+    channel <- "dua"
 
-	// receive 2x
+    // receive 2x
     fmt.Println(<-channel)
 
     // [A]
-	fmt.Println(<-channel)
+    fmt.Println(<-channel)
 
 }
 ```
@@ -155,13 +155,14 @@ import (
 )
 
 func broadcast(channel chan int) {
-	for i := 0; i < 10; i++ {
-		channel <- i
-		fmt.Println("send data ", i)
-	}
+    for i := 0; i < 10; i++ {
+        channel <- i
+        fmt.Println("send data ", i)
+    }
 
-	// close channel
-	close(channel)
+    // close channel
+    // close a channel to indicate that no more values will be sent
+    close(channel)
 }
 
 func main() {

@@ -12,6 +12,7 @@ func broadcast(channel chan int) {
 	}
 
 	// close channel
+	// close a channel to indicate that no more values will be sent
 	close(channel)
 }
 
