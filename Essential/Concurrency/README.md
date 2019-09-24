@@ -366,3 +366,78 @@ func main() {
 	}
 }
 ```
+
+### Mutex
+
+A Mutex (mutual exclusion) is used to provide a locking mechanism to ensure that only one Goroutine is running the critical section of code at any point of time to prevent race condition from happening.
+
+#### Race Condition
+
+#### Example 1:
+
+file example_race_condition.go
+
+```go
+package main
+
+import (
+	"fmt"
+	"sync"
+)
+
+var x = 0
+
+func increment(wg *sync.WaitGroup) {
+	x = x + 1
+	wg.Done()
+}
+func main() {
+	var w sync.WaitGroup
+	for i := 0; i < 1000; i++ {
+		w.Add(1)
+		go increment(&w)
+	}
+	w.Wait()
+	fmt.Println("final value of x", x)
+	// output
+	// final value of x 1000
+	// final value of x 992
+	// final value of x 92
+}
+```
+
+the output will be different for each time because of race condition. Some of the outputs which I encountered are final value of x 941, final value of x 928, final value of x 922 and so on
+
+> **How to detect race condition using command,
+> use this command**
+
+```go
+go run -race filename.go
+```
+
+for example :
+
+```go
+D:\learning-go\Essential\Concurrency>go run -race example_race_condition.go
+==================
+WARNING: DATA RACE
+Read at 0x000000607318 by goroutine 7:
+  main.increment()
+      D:/learning-go/Essential/Concurrency/example_race_condition.go:11 +0x41
+
+Previous write at 0x000000607318 by goroutine 6:
+  main.increment()
+      D:/learning-go/Essential/Concurrency/example_race_condition.go:11 +0x5d
+
+Goroutine 7 (running) created at:
+  main.main()
+      D:/learning-go/Essential/Concurrency/example_race_condition.go:18 +0xb2
+
+Goroutine 6 (finished) created at:
+  main.main()
+      D:/learning-go/Essential/Concurrency/example_race_condition.go:18 +0xb2
+==================
+final value of x 999
+Found 1 data race(s)  // race detected
+exit status 66
+```
