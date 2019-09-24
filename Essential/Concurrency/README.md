@@ -389,21 +389,32 @@ var x = 0
 
 func increment(wg *sync.WaitGroup) {
 	x = x + 1
+
+	// release block
 	wg.Done()
 }
 func main() {
 	var w sync.WaitGroup
 	for i := 0; i < 1000; i++ {
+
+		// add numbers goroutine will be wait (block)
 		w.Add(1)
+
+		// run goroutine
 		go increment(&w)
 	}
+
+	// wait block until done
 	w.Wait()
+
+	// print value x
 	fmt.Println("final value of x", x)
 	// output
 	// final value of x 1000
 	// final value of x 992
 	// final value of x 92
 }
+
 ```
 
 the output will be different for each time because of race condition. Some of the outputs which I encountered are final value of x 941, final value of x 928, final value of x 922 and so on
@@ -440,4 +451,66 @@ Goroutine 6 (finished) created at:
 final value of x 999
 Found 1 data race(s)  // race detected
 exit status 66
+```
+
+#### Solving race condition above with Mutex
+
+#### Example 2:
+
+file example_mutex.go
+
+```go
+package main
+
+import (
+	"fmt"
+	"sync"
+)
+
+var x = 0
+
+func increment(wg *sync.WaitGroup, m *sync.Mutex) {
+
+	// lock mutex
+	m.Lock()
+	x = x + 1
+
+	// unlock mutex
+	m.Unlock()
+
+	// release wait
+	wg.Done()
+}
+func main() {
+
+	// define waitGroup
+	var w sync.WaitGroup
+
+	// define mutex
+	var m sync.Mutex
+
+	for i := 0; i < 1000; i++ {
+		// add numbers goroutine will be wait (block)
+		w.Add(1)
+		// run goroutine
+		go increment(&w, &m)
+	}
+
+	// wait block until done
+	w.Wait()
+
+	// print value x
+	fmt.Println("final value of x", x)
+
+	// output
+	// final value of x 1000 (consistent)
+	// how many time you run this code always make result x = 1000
+}
+```
+
+The result x always 1000, so race condition solved
+
+```go
+go run -race example_mutex.go
+// output final value of x 1000, no race condition detected
 ```
