@@ -1,4 +1,4 @@
-## Connection GO with MongoDB
+## Go with MongoDB
 
 ### Install the MongoDB Go Driver
 
