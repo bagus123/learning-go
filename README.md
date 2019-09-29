@@ -18,7 +18,6 @@
 #### Best Practices
 
 - [Go with MongoDB](https://github.com/bagus123/learning-go/tree/master/Best%20Practises/go_with_mongodb "Go with MongoDB")
-
 - [Go Rest MongoDB](https://github.com/bagus123/learning-go/tree/master/Best%20Practises/go_rest_gin_mongodb "Go Rest MongoDB")
 
 #### Library
