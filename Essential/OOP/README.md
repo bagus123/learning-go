@@ -260,7 +260,3 @@ func main() {
 - Inheritance use Composition
 - Polymorphism use Interface
 - Abstraction use Embedding
-
-```
-
-```

@@ -23,6 +23,10 @@
 
 - REST Framework
   - [Gin Gonic](https://github.com/gin-gonic/gin "Gin Gonic")
+  - [Gorilla Mux](https://github.com/gorilla/mux "gorilla mux")
+- MongoDB
+  - [MongoDB Go Driver](https://github.com/mongodb/mongo-go-driver "MongoDB Go Driver")
+  - [MGo - Unmaintained](https://github.com/go-mgo/mgo)
 
 #### Other Example/Tutorial
 
