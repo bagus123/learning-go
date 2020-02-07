@@ -58,8 +58,8 @@ func GetAllHeroes(db *mongo.Database) []*SuperHero {
 	return heroes
 }
 
-// GetOne ...
-func GetOne(db *mongo.Database, filter bson.M) SuperHero {
+// FindOne ...
+func FindOne(db *mongo.Database, filter bson.M) SuperHero {
 
 	// create a new context with a 10 second timeout
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
@@ -71,7 +71,7 @@ func GetOne(db *mongo.Database, filter bson.M) SuperHero {
 	var superHero SuperHero
 	err := result.Decode(&superHero)
 	if err != nil {
-		log.Fatalln("Error decode super hero", err)
+		log.Fatalln("Error on Decoding the document", err)
 	}
 
 	return superHero
@@ -97,7 +97,7 @@ func Aggregate(db *mongo.Database, hero SuperHero) []*SuperHero {
 	}
 	result, err := col.Aggregate(ctx, pipeLine)
 	if err != nil {
-		log.Fatalln("Error on remove all super hero", err)
+		log.Fatalln("Error on aggregate super hero", err)
 	}
 
 	// Iterate through the returned cursor.
@@ -236,7 +236,7 @@ func main() {
 
 	// Find One
 	filter = bson.M{"name": "Spiderman"}
-	superHero := GetOne(db, filter)
+	superHero := FindOne(db, filter)
 	log.Println(superHero)
 
 	// Aggregate
