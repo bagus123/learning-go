@@ -12,11 +12,17 @@ go get go.mongodb.org/mongo-driver
 
 file main.go
 
+```shell
+#run file
+go run learning-go/Best\ Practises/go_with_mongodb/main.go 
+```
+
 ```go
 package main
 
 import (
 	"context"
+	"encoding/json"
 	"log"
 	"time"
 
@@ -26,6 +32,8 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"go.mongodb.org/mongo-driver/mongo/readpref"
 )
+
+type m bson.M
 
 // SuperHero ...
 type SuperHero struct {
@@ -67,6 +75,61 @@ func GetAllHeroes(db *mongo.Database) []*SuperHero {
 		}
 		heroes = append(heroes, &hero)
 	}
+	return heroes
+}
+
+// GetOne ...
+func GetOne(db *mongo.Database, filter bson.M) SuperHero {
+
+	// create a new context with a 10 second timeout
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	defer cancel()
+
+	col := db.Collection("heroes")
+	result := col.FindOne(ctx, filter)
+
+	var superHero SuperHero
+	err := result.Decode(&superHero)
+	if err != nil {
+		log.Fatalln("Error decode super hero", err)
+	}
+
+	return superHero
+}
+
+// Aggregate ...
+func Aggregate(db *mongo.Database, hero SuperHero) []*SuperHero {
+
+	var heroes []*SuperHero
+	col := db.Collection("heroes")
+
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	defer cancel()
+
+	// convert string to objectId
+	// id, _ := primitive.ObjectIDFromHex("5e3d5aab10417f8d971f0282")
+	// pipeLine := []m{
+	//   m{"$match": m{"_id": id}},
+	// }
+
+	pipeLine := []m{
+		m{"$match": m{"_id": hero.ID}},
+	}
+	result, err := col.Aggregate(ctx, pipeLine)
+	if err != nil {
+		log.Fatalln("Error on remove all super hero", err)
+	}
+
+	// Iterate through the returned cursor.
+	for result.Next(context.TODO()) {
+		var hero SuperHero
+		err = result.Decode(&hero)
+		if err != nil {
+			log.Fatal("Error on Decoding the document", err)
+		}
+		heroes = append(heroes, &hero)
+	}
+
 	return heroes
 }
 
@@ -191,5 +254,16 @@ func main() {
 	deletedCount = DeleteOneHero(db, filter)
 	log.Println(deletedCount)
 
+	// Find One
+	filter = bson.M{"name": "Spiderman"}
+	superHero := GetOne(db, filter)
+	log.Println(superHero)
+
+	// Aggregate
+	aggregateRows := Aggregate(db, superHero)
+	buff, _ := json.Marshal(&aggregateRows)
+	log.Println(string(buff))
+
 }
+
 ```
