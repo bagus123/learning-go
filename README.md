@@ -41,3 +41,7 @@
 - [REST API, Postgre, JWT, and Gorm](https://github.com/adigunhammedolalekan/go-contacts "REST API, Postgre, JWT, and Gorm")
 - [Build RESTful API service in golang using gin-gonic framework](https://medium.com/@thedevsaddam/build-restful-api-service-in-golang-using-gin-gonic-framework-85b1a6e176f3 "Build RESTful API service in golang using gin-gonic framework")
 - [Go talks Slide](https://talks.golang.org/ "Go talks Slide")
+- [Go kit Intro](https://medium.com/@shijuvar/go-microservices-with-go-kit-introduction-43a757398183)
+- [Getting started with Go kit](https://sagikazarmark.hu/blog/getting-started-with-go-kit/)
+- [Example Go kit](https://gokit.io/examples/stringsvc.html)
+- [Debug Go with Visual Studio Code](https://scotch.io/tutorials/debugging-go-code-with-visual-studio-code)
