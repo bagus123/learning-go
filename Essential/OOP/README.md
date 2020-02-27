@@ -19,19 +19,18 @@ special notation in Go:
 file encapsulation.go
 
 ```go
-package example
-
+package oop
 
 import "fmt"
 
 type Encapsulation struct{}
 
-// pubic function : first letter must Uppercase
+// pubic : first letter must Uppercase
 func (e *Encapsulation) Expose() {
 	fmt.Println("this public function")
 }
 
-// private function : first letter must lowercase
+// private : first letter must lowercase
 func (e *Encapsulation) hide() {
 	fmt.Println("this private function")
 }
