@@ -19,6 +19,7 @@ package main
 
 import (
 	"fmt"
+	"runtime"
 	"time"
 )
 
@@ -30,6 +31,9 @@ func say(s string) {
 }
 
 func main() {
+
+	// set max core CPU for execute
+	runtime.GOMAXPROCS(2)
 
 	// run multi thread using goroutine (asynchronous)
 	// go functionName
@@ -49,6 +53,7 @@ func main() {
 	// fmt.Scanln()
 	// fmt.Println("done")
 }
+
 ```
 
 ### Channel
