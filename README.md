@@ -10,6 +10,7 @@
 - [MAP](https://github.com/bagus123/learning-go/tree/master/Essential/Map "MAP")
 - [Error](https://github.com/bagus123/learning-go/tree/master/Essential/Error "Error")
 - [Struct](https://github.com/bagus123/learning-go/tree/master/Essential/Struct "Struct")
+- [Functions](https://github.com/bagus123/learning-go/tree/master/Essential/Functions "Functions")
 - [Methods](https://github.com/bagus123/learning-go/tree/master/Essential/Methods "Methods")
 - [Pointers](https://github.com/bagus123/learning-go/tree/master/Essential/Pointers "Pointers")
 - [Concurrency](https://github.com/bagus123/learning-go/tree/master/Essential/Concurrency "Concurrency")
