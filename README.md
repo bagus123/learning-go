@@ -9,6 +9,7 @@
 - [Array](https://github.com/bagus123/learning-go/tree/master/Essential/Array "Array")
 - [MAP](https://github.com/bagus123/learning-go/tree/master/Essential/Map "MAP")
 - [Error](https://github.com/bagus123/learning-go/tree/master/Essential/Error "Error")
+- [Reflect](https://github.com/bagus123/learning-go/tree/master/Essential/Reflect "Reflect")
 - [Struct](https://github.com/bagus123/learning-go/tree/master/Essential/Struct "Struct")
 - [Functions](https://github.com/bagus123/learning-go/tree/master/Essential/Functions "Functions")
 - [Methods](https://github.com/bagus123/learning-go/tree/master/Essential/Methods "Methods")
