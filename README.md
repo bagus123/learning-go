@@ -17,6 +17,8 @@
 - [Concurrency](https://github.com/bagus123/learning-go/tree/master/Essential/Concurrency "Concurrency")
 - [OOP](https://github.com/bagus123/learning-go/tree/master/Essential/OOP "OOP")
 - [Context](https://github.com/bagus123/learning-go/tree/master/Essential/Context "Context")
+- [Cyclic](https://github.com/bagus123/learning-go/tree/master/Essential/Cyclic "Cyclic")
+
 
 #### Best Practices
 
