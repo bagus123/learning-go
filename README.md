@@ -18,6 +18,8 @@
 - [OOP](https://github.com/bagus123/learning-go/tree/master/Essential/OOP "OOP")
 - [Context](https://github.com/bagus123/learning-go/tree/master/Essential/Context "Context")
 - [Cyclic](https://github.com/bagus123/learning-go/tree/master/Essential/Cyclic "Cyclic")
+- [Panic](https://github.com/bagus123/learning-go/tree/master/Essential/Panic "Panic")
+- [Read File](https://github.com/bagus123/learning-go/tree/master/Essential/ReadFile "Read File")
 
 
 #### Best Practices
@@ -30,6 +32,9 @@
 - REST Framework
   - [Gin Gonic](https://github.com/gin-gonic/gin "Gin Gonic")
   - [Gorilla Mux](https://github.com/gorilla/mux "gorilla mux")
+  - [Chi](https://github.com/go-chi/chi "Chi")
+  - [Fiber](https://github.com/gofiber/fiber "Fiber")
+
 - MongoDB
   - [MongoDB Go Driver](https://github.com/mongodb/mongo-go-driver "MongoDB Go Driver")
   - [MGo - Unmaintained](https://github.com/go-mgo/mgo)
