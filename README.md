@@ -41,6 +41,7 @@
   - [English](https://tour.golang.org/welcome/1)
   - [Indonesia](https://tour.golang-id.org/welcome/1)
 - [Learn By Example](https://gobyexample.com/ "Learn By Example")
+- [Tutorial Golang (golangbot)](https://golangbot.com "Tutorial Golang (golangbot)")
 - [Learn Go Module](https://medium.com/easyread/mencoba-go-module-pada-golang-13ae343ce529 "Learn Go Module")
 - [Golang tutorial series](https://golangbot.com/learn-golang-series/)
 - [REST API, Postgre, JWT, and Gorm](https://github.com/adigunhammedolalekan/go-contacts "REST API, Postgre, JWT, and Gorm")
