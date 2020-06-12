@@ -24,8 +24,8 @@
 
 #### Best Practices
 
-- [Go with MongoDB](https://github.com/bagus123/learning-go/tree/master/Best%20Practises/go_with_mongodb "Go with MongoDB")
-- [Go Rest MongoDB](https://github.com/bagus123/learning-go/tree/master/Best%20Practises/go_rest_gin_mongodb "Go Rest MongoDB")
+- [Go with MongoDB](https://github.com/bagus123/learning-go/tree/master/BestPractises/go_with_mongodb "Go with MongoDB")
+- [Go Rest MongoDB](https://github.com/bagus123/learning-go/tree/master/BestPractises/go_rest_gin_mongodb "Go Rest MongoDB")
 
 #### Library
 
@@ -56,3 +56,4 @@
 - [Getting started with Go kit](https://sagikazarmark.hu/blog/getting-started-with-go-kit/)
 - [Example Go kit](https://gokit.io/examples/stringsvc.html)
 - [Debug Go with Visual Studio Code](https://scotch.io/tutorials/debugging-go-code-with-visual-studio-code)
+- [Style guideline for Go packages](https://rakyll.org/style-packages/)
